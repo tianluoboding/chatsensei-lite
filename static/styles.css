@@ -1,0 +1,211 @@
+/**
+ * ChatSensei Lite - 自定义样式
+ * 补充 Pico.css 的样式
+ */
+
+/* 全局设置 */
+:root {
+    --primary-color: #4CAF50;
+    --secondary-color: #2196F3;
+    --accent-color: #FF9800;
+    --error-color: #f44336;
+}
+
+body {
+    padding: 2rem 1rem;
+}
+
+header h1 {
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    color: var(--muted-color);
+    margin-bottom: 2rem;
+}
+
+/* 语气徽章 */
+.tone-badge {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.tone-question {
+    background-color: #e3f2fd;
+    color: #1976d2;
+}
+
+.tone-positive {
+    background-color: #e8f5e9;
+    color: #388e3c;
+}
+
+.tone-negative {
+    background-color: #ffebee;
+    color: #d32f2f;
+}
+
+.tone-neutral {
+    background-color: #f5f5f5;
+    color: #616161;
+}
+
+/* 建议卡片网格 */
+.suggestions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.suggestion-card {
+    border: 2px solid var(--muted-border-color);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    transition: all 0.3s ease;
+}
+
+.suggestion-card:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.suggestion-card header {
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--muted-border-color);
+    padding-bottom: 0.5rem;
+}
+
+.suggestion-text {
+    min-height: 60px;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.suggestion-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.suggestion-actions button {
+    flex: 1;
+    margin: 0;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.use-btn {
+    background-color: var(--primary-color);
+}
+
+.bad-btn {
+    background-color: transparent;
+    border-color: var(--muted-border-color);
+}
+
+/* 反馈状态 */
+.feedback-good {
+    border-color: var(--primary-color);
+    background-color: #f1f8f4;
+}
+
+.feedback-bad {
+    border-color: var(--muted-border-color);
+    opacity: 0.7;
+}
+
+.feedback-message {
+    display: block;
+    text-align: center;
+    color: var(--primary-color);
+    margin-top: 0.5rem;
+    font-weight: bold;
+}
+
+/* 偏好显示 */
+.preferences-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+    background-color: var(--card-background-color);
+    border-radius: 0.5rem;
+    border: 1px solid var(--muted-border-color);
+}
+
+.preference-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+}
+
+.preference-label {
+    font-weight: 500;
+}
+
+.preference-value {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    background-color: var(--primary-hover);
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.25rem;
+}
+
+/* 错误消息 */
+.error-message {
+    padding: 1rem;
+    background-color: #ffebee;
+    color: var(--error-color);
+    border-radius: 0.5rem;
+    margin: 1rem 0;
+    border-left: 4px solid var(--error-color);
+}
+
+/* 页脚 */
+footer {
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--muted-border-color);
+    color: var(--muted-color);
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .suggestions-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .preferences-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.suggestion-card {
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* 加载状态 */
+button[aria-busy="true"] {
+    cursor: wait;
+}
+

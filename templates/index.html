@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatSensei Lite - 智能消息助手</title>
+    <!-- 引入 Pico.css CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <!-- 引入自定义样式 -->
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <main class="container">
+        <!-- 标题 -->
+        <header>
+            <h1>💬 ChatSensei Lite</h1>
+            <p>智能消息助手 - 粘贴聊天内容，获取多风格回复建议</p>
+        </header>
+
+        <!-- 输入区域 -->
+        <section>
+            <h2>1. 粘贴聊天消息</h2>
+            <textarea 
+                id="chat" 
+                placeholder="将最近的聊天消息粘贴到这里...&#10;例如：&#10;朋友：你周末有空吗？我们一起去看电影？"
+                rows="6"
+            ></textarea>
+            <button id="analyzeBtn" class="primary">🔍 分析 & 生成建议</button>
+        </section>
+
+        <!-- 结果显示区域 -->
+        <section id="resultsSection" style="display: none;">
+            <h2>2. 回复建议</h2>
+            
+            <!-- 语气显示 -->
+            <div id="toneDisplay" class="tone-badge"></div>
+
+            <!-- 建议卡片容器 -->
+            <div id="suggestionsContainer" class="suggestions-grid">
+                <!-- 动态生成的建议卡片将插入这里 -->
+            </div>
+        </section>
+
+        <!-- 偏好权重显示 -->
+        <section>
+            <h2>3. 你的风格偏好</h2>
+            <p><small>系统会根据你的反馈学习你的偏好风格</small></p>
+            <div id="preferencesDisplay" class="preferences-container">
+                <div class="preference-item">
+                    <span class="preference-label">礼貌风格:</span>
+                    <span id="polite-weight" class="preference-value">1.0</span>
+                </div>
+                <div class="preference-item">
+                    <span class="preference-label">幽默风格:</span>
+                    <span id="funny-weight" class="preference-value">1.0</span>
+                </div>
+                <div class="preference-item">
+                    <span class="preference-label">直接风格:</span>
+                    <span id="straightforward-weight" class="preference-value">1.0</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 错误消息显示 -->
+        <div id="errorMessage" class="error-message" style="display: none;"></div>
+
+        <!-- 页脚 -->
+        <footer>
+            <small>ChatSensei Lite v1.0 | NLP 课程项目原型</small>
+        </footer>
+    </main>
+
+    <!-- 引入 JavaScript -->
+    <script src="/static/script.js"></script>
+</body>
+</html>
+
